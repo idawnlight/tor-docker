@@ -1,0 +1,11 @@
+Nickname    myNiceRelay  # Change "myNiceRelay" to something you like
+ContactInfo your@e-mail  # Write your e-mail and be aware it will be published
+ORPort      9001         # You might use a different port, should you want to
+ExitRelay   0
+SocksPort   0
+
+# MyFamily AAAAAAAAAA,BBBBBBBB
+# AccountingStart day 0:00
+# AccountingMax 100 GBytes
+# RelayBandwidthRate 1000 KBytes
+# RelayBandwidthBurst 5000 KBytes # allow higher bursts but maintain average
