@@ -2,13 +2,13 @@ name: Build
 
 on:
   push:
-    branches:
-      - 'main'
+    # branches:
+    #   - 'main'
     tags:
       - 'v*.*.*'
-  pull_request:
-    branches:
-      - 'main'
+  # pull_request:
+  #   branches:
+  #     - 'main'
 
 permissions: 
   packages: write
@@ -41,6 +41,8 @@ jobs:
         with:
           images: |
             ghcr.io/idawnlight/tor
+          flavor: |
+            suffix=arm64,onlatest=true
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=semver,pattern={{version}}
@@ -49,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
