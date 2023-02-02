@@ -2,8 +2,7 @@ version: '3'
 services:
   tor:
     image: "ghcr.io/idawnlight/tor:latest"
-    ports:
-      - "9001:9001"
+    network_mode: host
     volumes:
       - ./data:/tor/persist
       - ./torrc:/tor/torrc
